@@ -6,30 +6,26 @@ function createCounter(initialValue = 0){
         showValue: function (){
             return number;
         },
-        increment: function () {
-            return function(n = 1){
+        increment: function (n = 1) {
                 return number = number + n;
-            }
-        } ,
-        decrement:  function () {
-            return function(m = 1){
-                return number = number - m
-            }
+        },
+        decrement:  function (m = 1) {
+                return number = number - m;
         },
         discard: function(){
-            return initialValue
+            return number = initialValue
         }  
     }
-return newCounter
-}
+  return newCounter
+  }
 
 const counter = createCounter();
 
 console.log(counter.showValue());
-console.log(counter.increment()());
-console.log(counter.increment()(5));
-console.log(counter.decrement()());
-console.log(counter.decrement()(1));
+console.log(counter.increment());
+console.log(counter.increment(5));
+console.log(counter.decrement());
+console.log(counter.decrement(2));
 console.log(counter.showValue());
 console.log(counter.discard());
 
@@ -37,25 +33,31 @@ console.log(counter.discard());
 const counter1 = createCounter(3);
 
 console.log(counter1.showValue());
-console.log(counter1.increment()());
-console.log(counter1.increment()(3));
-console.log(counter1.decrement()());
-console.log(counter1.decrement()(3));
+console.log(counter1.increment());
+console.log(counter1.increment(3));
+console.log(counter1.decrement());
+console.log(counter1.decrement(3));
 console.log(counter1.showValue());
 console.log(counter1.discard());
 
 
-//Создание фильтра
+Создание фильтра
 
- function filter(arr){
+function filter(){
     let array = [];
-    for (let num of arr){
+    let arrOfNumbers = [];
+    for(var i = 0; i < arguments.length;i++){
+        arrOfNumbers[i] = arguments[i];
+        
+        }
+    for(let num of arrOfNumbers){
         if(!array.includes(num)){
-            array.push(num);
+        array.push(num);
         }
     }
+    
+    
     return array
 }
 
-let newArr = [1,1,1,1,4,4,7,7,9,4,7,8,9];
-console.log(filter(newArr));
+console.log(filter(1,1,1,1,4,4,7,7,9,4,7,8,9));
