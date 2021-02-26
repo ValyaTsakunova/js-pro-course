@@ -40,6 +40,8 @@ function BMW (){
   this.climate = 'climate control';
 }
 BMW.prototype = Object.create(Car.prototype);
+BMW.prototype.constructor = BMW;
+BMW.prototype._super = Car;
 
 BMW.prototype.changeTires = function(season){
   if(season === 'winter'){
@@ -54,6 +56,8 @@ function Lexus(){
   this.seats = 'seat heating';
 }
 Lexus.prototype = Object.create(Car.prototype);
+Lexus.prototype.constructor = Lexus;
+Lexus.prototype._super = Car;
 
 Lexus.prototype.showMileage = function(mileage){
   return `Your Lexus ${this.model} has mileage ${mileage} kilometers`
@@ -64,6 +68,9 @@ function Audi(){
   this.lightingDevices = 'fog lights';
 }
 Audi.prototype = Object.create(Car.prototype);
+Audi.prototype.constructor = Audi;
+Audi.prototype._super = Car;
+
 
 Audi.prototype.showMaxSpeed = function(){
   return `Maximum speed of your Audi ${this.model} is ${this.maxSpeed} km/h`;
