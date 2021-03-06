@@ -1,0 +1,51 @@
+.popUp{
+    max-width: 500px;
+    height: 200px;
+    background-color: rgb(158, 208, 241);
+    border: 1px solid rgb(84, 84, 230);
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-left: auto;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 150px 1fr 30px;
+    grid-template-rows: 150px auto;
+}
+
+.notification{
+    grid-column: 1/3;
+    overflow: scroll;
+
+}
+.title{
+    font-size: 25px;
+    color: black;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+.text{
+    color: rgb(13, 25, 80);
+    font-style: italic;
+    font-size: 20px;
+}
+.close{
+    margin-left: auto;
+}
+.disable{
+    margin-top: 30px;
+}
+.pagination{
+    grid-column: 2/4;
+    grid-template-rows: 1fr;
+    margin-top: auto;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 20px 1fr 20px;
+}
+.paginationButtons{
+    text-align: center;
+}
+
+i{
+    margin-left: 5px;
+}
