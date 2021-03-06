@@ -1,5 +1,5 @@
 body{
-    background: url(img/image.jpg);
+    background: url(img/image.jpg) no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -47,13 +47,13 @@ button:active, button:focus {
     display: none;
 }
 
-.weater-info{
+.weatherInfo{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
 }
 
-.weater-info div{
+.weatherInfo div{
     margin-right: 30px;
     margin-bottom: 40px;
     font-size: 35px;
@@ -82,6 +82,23 @@ img{
     
 }
 
-.empty{
-    background-color: black;
+/* media */
+
+@media screen and (max-width: 750px){
+    form{
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        justify-content: center;
+    }
+    input{
+        margin-bottom: 20px;
+    }
+    .weatherInfo{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        justify-content: center;
+    }
+    .weatherInfo div{
+        margin-bottom: 15px;
+    }
 }

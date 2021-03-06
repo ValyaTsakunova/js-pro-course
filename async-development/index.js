@@ -7,7 +7,7 @@ const image = document.querySelector('img');
 const temp = document.querySelector('.temp');
 const locationElem = document.querySelector('.location');
 const time = document.querySelector('.time');
-const feelsLike = document.querySelector('.feels-like');
+const feelsLike = document.querySelector('.feelsLike');
 const comment = document.querySelector('.comment');
 const windDir = document.querySelector('.wind');
 const windSpeed = document.querySelector('.speed');
@@ -39,6 +39,5 @@ button.addEventListener('click', function(event){
         weatherBlock.style.display = 'block';
         getInfo();
     }
-    
 })
 
