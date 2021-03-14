@@ -20,22 +20,12 @@ const closeButton = document.querySelector('.close');
 const weatherHistoryBlock = document.querySelector('.showWeatherHistory');
 const clearButton = document.getElementById('clear');
 
-const getInfo = function(firstOpt, secondOpt){
-    fetch(`http://api.weatherstack.com/current?access_key=09e472f963826a15c0f422d0ca58a536&query=${firstOpt},${secondOpt}`).then(response => {
-        return response.json()
-    }).then(data => {
-        getData(data);
-        saveHistory(data); 
-        
-    })  
-}
-
 //заполняем поля по результатам поиска
-function getData(data){
-    const {current, request} = data;
+export function getData(data){
+    const {current, request, location} = data;
        image.src = current.weather_icons;
        temp.textContent = `${current.temperature}℃`;
-       locationElem.textContent = request.query;
+       locationElem.textContent = `${location.name}, ${location.country}`;
 
        time.textContent = `Time: ${current.observation_time}`;
         feelsLike.textContent = `Feels like: ${current.feelslike}℃`;
@@ -45,14 +35,13 @@ function getData(data){
         pressure.textContent = `Pressure: ${current.pressure} MB`;  
 }
 
-
 //показать блок погоды по поиску
+import {getInfo} from './getInfo.js';
 button.addEventListener('click', function(event){
     event.preventDefault();
     if(city.value){
         weatherBlock.style.display = 'block';
         getInfo(city.value, country.value);
-        
     }
     weatherHistorySection.style.display = 'none';
     document.querySelector('.message').textContent = '';
@@ -65,6 +54,7 @@ localWeather.addEventListener('click', () => {
         const longitude = position.coords.longitude;
         getInfo(latitude, longitude);
         weatherBlock.style.display = 'block';
+        weatherHistorySection.style.display = 'none';
     }
     function error() {
         console.log('error')
@@ -74,7 +64,7 @@ localWeather.addEventListener('click', () => {
 
 
 //сохраняем данные по поиску в локал сторэдж
-function saveHistory(data) {
+export function saveHistory(data) {
     let weatherHistory = JSON.parse(localStorage.getItem('history')) || {};
      weatherHistory[data.location.name] = {
         city: data.location.name,
@@ -99,18 +89,25 @@ closeButton.addEventListener('click', () => {
 })
 
 //заполняем блок с историей поиска
+const tableWeather = document.createElement('table');
+tableWeather.id = 'myHistory'; 
 function createHistoryWeather(weatherHistory){
+   if(document.getElementById('myHistory')){
+    document.getElementById('myHistory').innerHTML = ' '
+   }
     for(let el in weatherHistory){
-        let historyElem = document.createElement('tr');
-        historyElem.className = 'historyItem'
+       let historyElem = document.createElement('tr');
+        historyElem.className = 'historyItem';
+        historyElem.id = `${weatherHistory[el].city}`;
         historyElem.innerHTML = `
         <td>${weatherHistory[el].city}, ${weatherHistory[el].country}</td>
         <td>${weatherHistory[el].temperature}℃</td>
         <td>${weatherHistory[el].wind_dir}</td>
         <td>${weatherHistory[el].wind_speed} km/h</td>
         <td>${weatherHistory[el].pressure} MB</td>`
-    
-    weatherHistoryBlock.append(historyElem);
+
+     tableWeather.append(historyElem) ; 
+     weatherHistoryBlock.append(tableWeather);
     }
 }
 

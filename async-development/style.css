@@ -88,6 +88,7 @@ img{
     
 }
 .weatherHistory{
+    position: relative;
     color: white;
     background-color: rgba(231, 221, 221, 0.411);
     border: 1px solid gray;
@@ -99,21 +100,48 @@ img{
     width: 100%;
     margin-bottom: 20px;
 }
+.showWeatherHistory-icons{
+    margin-top: 50px;
+}
+
 .close{
+    width: 0px;
+    background-color: transparent;
+    border: none;
     text-align: right;
     margin: 10px;
-
+    position: absolute;
+    right: -80px;
+    top: 12px;
 }
+
+.close:before, .close:after {
+    position: absolute;
+    right: 120px;
+    content: ' ';
+    height: 23px;
+    width: 2px;
+    background-color: white;
+}
+.close:before {
+    transform: rotate(45deg);
+}
+.close:after {
+    transform: rotate(-45deg);
+}
+
 table{
-    padding: 0px 20px;
+    padding: 0px 10px;
     line-height: 2;
     font-size: 25px; 
-   font-style: italic;
-
+    font-style: italic;
+    margin: 10px 20px;
+    width: 100%;
 }
-td{
+table td{
     width: 20%;
 }
+
 .weatherHistory button{
     width: 150px;
     margin-bottom: 20px;

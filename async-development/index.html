@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"  integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <script defer src="index.js"></script>
+    <!-- <script defer src="index.js"></script> -->
     <title>Weather</title>
 </head>
 <body>
@@ -45,8 +45,8 @@
     <section>
         <div class="container">
             <div class="weatherHistory">
-                <div class="close"><i class="fas fa-times"></i></div>
-                <table class="showWeatherHistory">
+                <button class="close"></button>
+                <table class="showWeatherHistory-icons">
                     <tr>
                         <td>Location</td>
                         <td><i class="fas fa-thermometer-three-quarters"></i></td>
@@ -55,11 +55,14 @@
                         <td><i class="fas fa-compress-arrows-alt"></i></td>
                     </tr>
                 </table>
+                <div class="showWeatherHistory"></div>
                 <div class="message"></div>
                 <button id="clear">Clear history</button>
             </div>
             
         </div>
     </section>
+    <script src="getInfo.js" type="module"></script>
+    <script src="index.js" type="module"></script>
 </body>
 </html>
