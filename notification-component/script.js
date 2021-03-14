@@ -15,14 +15,15 @@ export function showNotification(data){
                 <div class="title"></div>
                 <div class="text"></div>
             </div>
-            <div class="close">
-                <i class="fas fa-times" tabindex="1"></i>
+            <div>
+            <button class="close">
+            </button>
             </div>
             <div class="disableNot">
                 <input type="checkbox" class="disable" tabindex="1"> Disable
             </div> 
             <div class="pagination">
-                <div class="leftBtn"> <i class="fas fa-chevron-left" tabindex="2"></i> </div>
+                <button class="leftBtn"></button>
                     <div class="paginationButtons">
                     ${data.map(notification => `
                     <input type="radio" 
@@ -32,8 +33,7 @@ export function showNotification(data){
                     checked="${notification.id == currentNotificationID}">
                     </input>`).join('')}
                     </div>
-                <div class="rightBtn"> <i class="fas fa-chevron-right" tabindex="4"></i> </div>
-               
+                <button class="rightBtn"> </button>
             </div> 
         </section>`;
 
@@ -60,14 +60,6 @@ function setEventListeners(data, currentNotificationID){
             document.getElementById(currentNotificationID).checked = true;
             addNotificationText(data.find(el => el.id == currentNotificationID));
         })
-    leftBtn.addEventListener('keyup', (ev) => {
-            if (ev.key === 'Enter') {
-                currentNotificationID = (currentNotificationID == 1) ? data.length : currentNotificationID - 1;
-                localStorage.setItem('currentNotificationID', currentNotificationID);
-                document.getElementById(currentNotificationID).checked = true;
-                addNotificationText(data.find(el => el.id == currentNotificationID));
-            }
-        })
     
     const rightBtn = document.querySelector('.rightBtn');
     rightBtn.addEventListener('click', () => {
@@ -76,14 +68,6 @@ function setEventListeners(data, currentNotificationID){
         document.getElementById(currentNotificationID).checked = true;
         addNotificationText(data.find(el => el.id == currentNotificationID));
         })  
-    rightBtn.addEventListener('keyup', (ev) => {
-            if (ev.key === 'Enter') {
-                currentNotificationID = (currentNotificationID == data.length) ? 1 : currentNotificationID + 1;
-                localStorage.setItem('currentNotificationID', currentNotificationID);
-                document.getElementById(currentNotificationID).checked = true;
-                addNotificationText(data.find(el => el.id == currentNotificationID));
-            }
-        })
         
     const radioBtn = document.querySelector('.paginationButtons');
     radioBtn.addEventListener('click', (ev) => {
@@ -98,11 +82,7 @@ function setEventListeners(data, currentNotificationID){
     closeBtn.addEventListener('click', () => {
             document.querySelector('.popUp').remove()
              })
-        closeBtn.addEventListener('keyup', (ev) => {
-            if (ev.key === 'Enter') {
-                document.querySelector('.popUp').remove()
-            }
-        })
+    
 
     const disableBtn = document.querySelector('.disable');
     disableBtn.addEventListener('click', () => {
@@ -110,12 +90,6 @@ function setEventListeners(data, currentNotificationID){
                 localStorage.setItem('isNotificationDisabled', 'true')
             } else {
                 localStorage.clear()
-            }
-        })
-    disableBtn.addEventListener('keyup', (ev) => {
-            if(ev.key === 'Enter'){
-                disableBtn.checked = 'true';
-                localStorage.setItem('isNotificationDisabled', 'true');
             }
         })
 }

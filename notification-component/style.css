@@ -28,9 +28,7 @@
     font-style: italic;
     font-size: 20px;
 }
-.close{
-    margin-left: auto;
-}
+
 .disable{
     margin-top: 30px;
 }
@@ -48,4 +46,48 @@
 
 i{
     margin-left: 5px;
+}
+.close {
+    position: absolute;
+    right:22px;
+    top: 12px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+    background-color: transparent;
+    border: none;
+    }
+    .close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 20px;
+    width: 2px;
+    background-color: black;
+    }
+    .close:before {
+    transform: rotate(45deg);
+    }
+    .close:after {
+    transform: rotate(-45deg);
+}
+.leftBtn{
+    width: 15px;
+    height: 15px;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: none;
+    border-left: none;
+    transform: rotate(-135deg);
+    background-color: transparent;
+}
+.rightBtn{
+    width: 15px;
+    height: 15px;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    transform: rotate(45deg);
+    background-color: transparent;
+    border-bottom: none;
+    border-left: none;
 }
