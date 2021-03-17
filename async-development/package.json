@@ -1,0 +1,21 @@
+{
+  "name": "async-development-npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "browserify ./src/index.js -o dist/bundle.js -t [ babelify --presets [ @babel/preset-env ] --plugins [ @babel/plugin-transform-async-to-generator ] ]"
+  },
+  "author": "ValyaTsakunova",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^17.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/plugin-transform-async-to-generator": "^7.13.0",
+    "@babel/preset-env": "^7.13.10",
+    "babelify": "^10.0.0"
+  }
+}

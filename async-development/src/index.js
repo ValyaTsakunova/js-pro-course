@@ -1,3 +1,6 @@
+import {getInfo} from './getInfo.js';
+
+
 const button = document.getElementById('submit');
 const city = document.getElementById('city');
 const country = document.getElementById('country');
@@ -36,7 +39,6 @@ export function getData(data){
 }
 
 //показать блок погоды по поиску
-import {getInfo} from './getInfo.js';
 button.addEventListener('click', function(event){
     event.preventDefault();
     if(city.value){
