@@ -1,0 +1,93 @@
+.popUp{
+    max-width: 500px;
+    height: 200px;
+    background-color: rgb(158, 208, 241);
+    border: 1px solid rgb(84, 84, 230);
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-left: auto;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 150px 1fr 30px;
+    grid-template-rows: 150px auto;
+}
+
+.notification{
+    grid-column: 1/3;
+    overflow: scroll;
+
+}
+.title{
+    font-size: 25px;
+    color: black;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+.text{
+    color: rgb(13, 25, 80);
+    font-style: italic;
+    font-size: 20px;
+}
+
+.disable{
+    margin-top: 30px;
+}
+.pagination{
+    grid-column: 2/4;
+    grid-template-rows: 1fr;
+    margin-top: auto;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 20px 1fr 20px;
+}
+.paginationButtons{
+    text-align: center;
+}
+
+i{
+    margin-left: 5px;
+}
+.close {
+    position: absolute;
+    right:22px;
+    top: 12px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+    background-color: transparent;
+    border: none;
+    }
+    .close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 20px;
+    width: 2px;
+    background-color: black;
+    }
+    .close:before {
+    transform: rotate(45deg);
+    }
+    .close:after {
+    transform: rotate(-45deg);
+}
+.leftBtn{
+    width: 15px;
+    height: 15px;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: none;
+    border-left: none;
+    transform: rotate(-135deg);
+    background-color: transparent;
+}
+.rightBtn{
+    width: 15px;
+    height: 15px;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    transform: rotate(45deg);
+    background-color: transparent;
+    border-bottom: none;
+    border-left: none;
+}
