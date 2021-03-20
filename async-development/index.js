@@ -1,18 +1,10 @@
+import {getInfo} from './getInfo.js';
+
 const button = document.getElementById('submit');
 const city = document.getElementById('city');
 const country = document.getElementById('country');
 
 const weatherBlock = document.querySelector('.weather');
-const image = document.querySelector('img');
-const temp = document.querySelector('.temp');
-const locationElem = document.querySelector('.location');
-const time = document.querySelector('.time');
-const feelsLike = document.querySelector('.feelsLike');
-const comment = document.querySelector('.comment');
-const windDir = document.querySelector('.wind');
-const windSpeed = document.querySelector('.speed');
-const pressure = document.querySelector('.pressure');
-
 const localWeather = document.getElementById('local')
 const historyButton = document.getElementById('history');
 const weatherHistorySection = document.querySelector('.weatherHistory');
@@ -20,23 +12,8 @@ const closeButton = document.querySelector('.close');
 const weatherHistoryBlock = document.querySelector('.showWeatherHistory');
 const clearButton = document.getElementById('clear');
 
-//заполняем поля по результатам поиска
-export function getData(data){
-    const {current, request, location} = data;
-       image.src = current.weather_icons;
-       temp.textContent = `${current.temperature}℃`;
-       locationElem.textContent = `${location.name}, ${location.country}`;
-
-       time.textContent = `Time: ${current.observation_time}`;
-        feelsLike.textContent = `Feels like: ${current.feelslike}℃`;
-       comment.textContent = `Today is ${current.weather_descriptions}`;
-        windDir.textContent= `Wind: ${current.wind_dir}`;
-        windSpeed.textContent = `Speed: ${current.wind_speed} km/h`;
-        pressure.textContent = `Pressure: ${current.pressure} MB`;  
-}
 
 //показать блок погоды по поиску
-import {getInfo} from './getInfo.js';
 button.addEventListener('click', function(event){
     event.preventDefault();
     if(city.value){
@@ -62,20 +39,6 @@ localWeather.addEventListener('click', () => {
     navigator.geolocation.getCurrentPosition(success, error)
 })
 
-
-//сохраняем данные по поиску в локал сторэдж
-export function saveHistory(data) {
-    let weatherHistory = JSON.parse(localStorage.getItem('history')) || {};
-     weatherHistory[data.location.name] = {
-        city: data.location.name,
-        country: data.location.country,
-        temperature: data.current.temperature,
-        pressure: data.current.pressure,
-        wind_dir: data.current.wind_dir,
-        wind_speed: data.current.wind_speed
-    }
-    localStorage.setItem('history', JSON.stringify(weatherHistory))
-}
 
 historyButton.addEventListener('click', () => {
     weatherBlock.style.display = 'none';
