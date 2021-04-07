@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSync } from '@fortawesome/free-solid-svg-icons';
 
-const element = <FontAwesomeIcon icon={faSync} />;
+const dischargeButtonIcon = <FontAwesomeIcon icon={faSync} />;
 
 class Counter extends React.Component{
     constructor(props){
@@ -14,15 +14,15 @@ class Counter extends React.Component{
     }
 
     plus = () => {
-        this.setState({
-            value: this.state.value + 1,
-        })
+        this.setState((prevState) => ({
+            value: prevState.value + 1,
+        }))
     }
 
     minus = () => {
-        this.setState({
-            value: this.state.value - 1,
-        })
+        this.setState((prevState) => ({
+            value: prevState.value - 1,
+        }))
     }
 
     discharge = () => {
@@ -38,7 +38,7 @@ class Counter extends React.Component{
                     {this.state.value}
                 </div>
                 <button className="plusButton" onClick={this.plus}></button>
-                <button className="dischargeButton" onClick={this.discharge}>{element}</button>
+                <button className="dischargeButton" onClick={this.discharge}>{dischargeButtonIcon}</button>
                 <button className="minusButton" onClick={this.minus}></button>
             </div>
         )

@@ -1,9 +1,3 @@
-.wrapper{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    max-width: 1400px;
-}
-
 .counter{
     margin:  40px auto;
     width: 350px;
