@@ -11,7 +11,7 @@ export default function EmojiContainer(props){
         if(item.title.includes(searchEmoji) || item.keywords.includes(searchEmoji)){
             return item
         }
-    })).slice(0,15).map((item, key) => <EmojiRow  item={item} key={key} /> )
+    })).slice(0,15).map((item) => <EmojiRow  item={item} key={item.symbol} /> )
     return(
         <ul className="emojiContainer">
            {emojiBlock} 
