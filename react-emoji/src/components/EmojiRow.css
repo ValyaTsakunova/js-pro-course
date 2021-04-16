@@ -1,0 +1,15 @@
+.emojiRow{
+    border: 1px gray solid;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 7px;
+    width: 300px;
+    font-size: 20px;
+}
+.emojiRow:hover{
+    background-color: rgba(175, 213, 235, 0.781);
+}
+
+.imageOFEmoji{
+    padding-right: 10px;
+}
