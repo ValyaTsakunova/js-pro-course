@@ -1,0 +1,17 @@
+.cardItem{
+    margin: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 400px;
+}
+.cardText{
+    flex-grow: 2;
+}
+.cardFooter{
+    height: 80px;
+}
+.author{
+    color: green;
+}
