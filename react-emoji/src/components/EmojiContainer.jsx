@@ -1,9 +1,8 @@
 import React from 'react';
 import EmojiRow from './EmojiRow';
-import emoji from '../emoji.json';
+import emojiList from '../emoji.json';
 import './EmojiContainer.css'
 
-const emojiList = emoji;
 
 export default function EmojiContainer(props){
     const {searchEmoji} = props;
