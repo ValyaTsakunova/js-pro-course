@@ -1,0 +1,10 @@
+.wrapper{
+    max-width: 1400px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.spinner{
+    margin-right: 15px;
+    margin-top: 60px;
+}
