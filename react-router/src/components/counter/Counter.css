@@ -1,0 +1,73 @@
+.counter{
+    margin:  40px 20px;
+    width: 350px;
+    color: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 50px;
+    text-align: center;
+    
+}
+
+.result{
+    grid-column: 1/4;
+    color:  rgb(24, 30, 122);
+    background-color: rgba(143, 217, 219, 0.637);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding-top: 20px;
+    font-size: 40px;
+}
+
+.plusButton{
+    background-color: rgba(224, 131, 224, 0.658);
+    position: relative;
+    border-bottom-left-radius: 15px;
+    outline: inherit;
+}
+
+.plusButton::after {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #fff;
+    height: 4px;
+    width: 45px;
+    top: 46%;
+    left: 40px;
+}
+
+.plusButton::before {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #fff;
+    width: 4px;
+    height: 35px;
+    left: 54%;
+    top: 5px;
+  }
+
+.dischargeButton{
+    background-color: rgba(49, 106, 192, 0.788);
+    color:white;
+    font-size: 20px;
+    outline: inherit;
+}
+
+.minusButton{
+    background-color: rgba(80, 32, 107, 0.836);
+    position: relative;
+    border-bottom-right-radius: 15px;
+    outline: inherit;
+}
+.minusButton::after {
+    content: " ";
+    position: absolute;
+    display: block;
+    background-color: #fff;
+    height: 4px;
+    width: 45px;
+    top: 48%;
+    left: 35px;
+}
